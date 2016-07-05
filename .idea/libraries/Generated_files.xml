@@ -1,0 +1,93 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/node_modules/iconv-lite/encodings/internal-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/iconv-lite/encodings/sbcs-codec-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/iconv-lite/encodings/sbcs-data-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/iconv-lite/encodings/dbcs-codec-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/iconv-lite/encodings/sbcs-data-generated-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/nodemon/lib/nodemon-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/source-map/lib/source-map-consumer-compiled.js" />
+        <item url="file://$PROJECT_DIR$/bin/server-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/qs/lib/utils-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/source-map/dist/source-map-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/inflation/index-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/raw-body/index-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/koa-bodyparser/index-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/bytes/index-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/qs/test/utils-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/qs/lib/stringify-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/qs/test/parse-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/qs/lib/parse-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/qs/lib/index-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/co-body/lib/form-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/co-body/lib/json-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/co-body/lib/text-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/methods/index-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/co-body/lib/any-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/path-to-regexp/node_modules/isarray/index-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/co-body/index-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/path-to-regexp/node_modules/isarray/build/build-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/qs/test/stringify-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/path-to-regexp/index-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/unpipe/index-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/koa-router/lib/layer-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/iconv-lite/lib/extend-node-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/koa-router/lib/router-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/iconv-lite/lib/streams-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/iconv-lite/lib/index-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/iconv-lite/lib/bom-handling-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/iconv-lite/encodings/utf16-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/iconv-lite/encodings/index-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/iconv-lite/encodings/utf7-compiled.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/iconv-lite/encodings/dbcs-data-compiled.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/index-compiled.js" />
+      <root url="file://$PROJECT_DIR$/index-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/iconv-lite/encodings/internal-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/iconv-lite/encodings/sbcs-codec-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/iconv-lite/encodings/sbcs-data-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/iconv-lite/encodings/dbcs-codec-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/iconv-lite/encodings/sbcs-data-generated-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/nodemon/lib/nodemon-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/source-map/lib/source-map-consumer-compiled.js" />
+      <root url="file://$PROJECT_DIR$/bin/server-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/qs/lib/utils-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/source-map/dist/source-map-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/inflation/index-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/raw-body/index-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/koa-bodyparser/index-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/bytes/index-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/qs/test/utils-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/qs/lib/stringify-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/qs/test/parse-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/qs/lib/parse-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/qs/lib/index-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/co-body/lib/form-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/co-body/lib/json-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/co-body/lib/text-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/methods/index-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/co-body/lib/any-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/path-to-regexp/node_modules/isarray/index-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/co-body/index-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/path-to-regexp/node_modules/isarray/build/build-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/qs/test/stringify-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/path-to-regexp/index-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/unpipe/index-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/koa-router/lib/layer-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/iconv-lite/lib/extend-node-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/koa-router/lib/router-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/iconv-lite/lib/streams-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/iconv-lite/lib/index-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/iconv-lite/lib/bom-handling-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/iconv-lite/encodings/utf16-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/iconv-lite/encodings/index-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/iconv-lite/encodings/utf7-compiled.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/iconv-lite/encodings/dbcs-data-compiled.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,36 @@
+{
+  "name": "koa2-registerSystem",
+  "version": "1.0.0",
+  "description": "koa v2 registerSystem.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marsprince/koa2-registerSystem"
+  },
+  "keywords": [
+    "koa",
+    "koa2",
+    "babel",
+    "es2015"
+  ],
+  "author": "marsprince",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marsprince/koa2-registerSystem/issues"
+  },
+  "homepage": "https://github.com/marsprince/koa2-registerSystem#readme",
+  "dependencies": {
+    "babel-preset-es2015-node5": "^1.1.2",
+    "babel-preset-stage-0": "^6.3.13",
+    "koa": "^2.0.0-alpha.3",
+    "koa-bodyparser": "^3.1.0",
+    "koa-router": "^7.0.1"
+  },
+  "devDependencies": {
+    "babel-register": "^6.4.3",
+    "nodemon": "^1.8.1"
+  }
+}
