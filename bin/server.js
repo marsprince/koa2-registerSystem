@@ -4,12 +4,23 @@
 
 import Koa from 'koa'
 import Router from 'koa-router'
+import render from 'koa-swig'
+import co from 'co'
+import path from 'path';
 
 const app = new Koa()
 const router=Router()
 
-router.get('/', function (ctx, next) {
-    ctx.body="hello"
+/*
+为ctx添加render方法，渲染html
+ */
+app.context.render = co.wrap(render({
+    root: path.join(__dirname, '../public/views'),
+    writeBody: false
+}));
+
+router.get('/', async (ctx, next)=> {
+    ctx.body=await ctx.render('home');
 });
 
 app
