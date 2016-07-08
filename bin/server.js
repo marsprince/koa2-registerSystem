@@ -7,9 +7,12 @@ import Router from 'koa-router'
 import render from 'koa-swig'
 import co from 'co'
 import path from 'path';
+import serve from 'koa-static'
 
 const app = new Koa()
 const router=Router()
+
+app.use(serve(__dirname + '/public'));
 
 /*
 为ctx添加render方法，渲染html
@@ -19,8 +22,13 @@ app.context.render = co.wrap(render({
     writeBody: false
 }));
 
+
 router.get('/', async (ctx, next)=> {
-    ctx.body=await ctx.render('home');
+    ctx.body=await ctx.render('login');
+});
+
+router.get('/dist', async (ctx, next)=> {
+    await serve(__dirname + '/public')
 });
 
 app
