@@ -28,7 +28,7 @@
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
-    "material-ui": "^0.14.4",
+    "material-ui": "^0.15.2",
     "normalize.css": "^3.0.3",
     "react": "^0.14.8",
     "react-css-modules": "^3.7.7",

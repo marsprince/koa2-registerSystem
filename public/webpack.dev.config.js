@@ -5,26 +5,26 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
   devtool: 'eval',
   entry: [
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/only-dev-server',
-    './src/index'
+    './public/login'
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: '/',
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: 'http://localhost:3000/static/'
   },
   plugins: [
     new ExtractTextPlugin('app.css', {
       allChunks: true
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
   ],
   module: {
     loaders: [{
       test: /\.js$/,
+      exclude:/node_modules/,
       loaders: ['react-hot', 'babel'],
-      include: path.join(__dirname, 'src'),
+      include: path.join(__dirname, '../public'),
     },
     {
       test: /\.css$/,
