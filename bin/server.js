@@ -9,18 +9,44 @@ import co from 'co'
 import path from 'path';
 import serve from 'koa-static';
 import logger from 'koa-logger'
+import convert from 'koa-convert'
 
+//init
 const app = new Koa()
-const router=Router()
+const router = Router()
 
+//body parser
+import bodyParser from 'koa-bodyparser'
+app.use(bodyParser())
 
-/*
-获得环境，开发or生产
- */
+//keys
+
+app.keys = ['your-session-secret']
+
+//获得环境，开发or生产
+
 const environment = process.env.NODE_ENV || 'development';
-/*
-配置生产和开发
- */
+
+//database config
+
+import databaseDev from '../config/mysql.dev'
+const databaseConfig = process.env.NODE_ENV == 'production' ? null : databaseDev
+
+//session
+
+const session = require('koa-generic-session')
+    , MysqlStore = require('koa-mysql-session')
+    , THIRTY_MINTUES = 30 * 60 * 1000;
+app.use(convert(session({
+    store: new MysqlStore(databaseConfig),
+    rolling: true,
+    cookie: {
+        maxage: THIRTY_MINTUES
+    }
+})))
+
+//配置生产和开发
+
 if (environment !== 'production') {
     console.log('DEVOLOPMENT ENVIRONMENT INIT   ===================');
     app.use(logger());
@@ -29,28 +55,29 @@ if (environment !== 'production') {
 } else {
     console.log('PRODUCTION ENVIRONMENT INIT    ====================');
     //Production needs physical files! (built via separate process)
-    app.use(serve(path.resolve(__dirname , '../public')));
+    app.use(serve(path.resolve(__dirname, '../public')));
 }
 
+// authentication
+import passport from 'koa-passport'
+app.use(passport.initialize())
+app.use(passport.session())
+
 /*
-为ctx添加render方法，渲染html
+ 为ctx添加render方法，渲染html
  */
 app.context.render = co.wrap(render({
     root: path.join(__dirname, '../public/views'),
     writeBody: false
 }));
 
-router.get('/', async (ctx, next)=> {
-    ctx.body=await ctx.render('login');
-});
 
-router.get('/dist', async (ctx, next)=> {
-    await serve(__dirname + '/public')
-});
+// Require authentication for now
 
-app
-    .use(router.routes())
-    .use(router.allowedMethods());
+
+//init router
+import initRouters from '../src/routers/index'
+initRouters(app)
 app.listen(3000, () => console.log('server started 3000'))
 
 export default app
