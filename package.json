@@ -38,7 +38,9 @@
     "koa-swig": "^2.2.0",
     "koa-webpack-middleware": "^1.0.1",
     "mount-koa-routes": "^2.0.1",
-    "mysql": "^2.11.1"
+    "mysql": "^2.11.1",
+    "passport-local": "^1.0.0",
+    "sequelize": "^3.23.6"
   },
   "devDependencies": {
     "babel-core": "^6.10.4",
