@@ -3,7 +3,6 @@
  */
 
 import Koa from 'koa'
-import Router from 'koa-router'
 import render from 'koa-swig'
 import co from 'co'
 import path from 'path';
@@ -13,7 +12,6 @@ import convert from 'koa-convert'
 
 //init
 const app = new Koa()
-const router = Router()
 
 //body parser
 import bodyParser from 'koa-bodyparser'
