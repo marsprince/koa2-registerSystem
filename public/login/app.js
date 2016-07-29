@@ -8,6 +8,18 @@ import styles from '../css/login.css'
 class Login extends React.Component{
     constructor(props) {
         super(props)
+        this.state={
+            username:"",
+            password:""
+        }
+    }
+
+    login(){
+        console.log(this.state)
+        fetch("/api/auth/login",{
+            method:"POST",
+            body: JSON.stringify(this.state)
+        })
     }
     
     render(){
@@ -22,15 +34,21 @@ class Login extends React.Component{
                                 hintText="用户名"
                                 floatingLabelText="请输入用户名"
                                 fullWidth={true}
+                                onChange={(event)=>this.setState({
+                                username:event.target.value
+                                })}
                             />
                             <TextField
                                 hintText="密码"
                                 floatingLabelText="请输入密码"
                                 fullWidth={true}
+                                onChange={(event)=>this.setState({
+                                password:event.target.value
+                                })}
                             />
                         </div>
                         <div  styleName='loginButton'>
-                            <RaisedButton primary={true} fullWidth={true} label="登录"  />
+                            <RaisedButton primary={true} fullWidth={true} label="登录" onClick={()=>this.login()} />
                         </div>
                     </div>
                     </Paper>
