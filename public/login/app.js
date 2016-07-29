@@ -4,6 +4,7 @@ import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import CSSModules from 'react-css-modules';
 import styles from '../css/login.css'
+import 'whatwg-fetch';
 
 class Login extends React.Component{
     constructor(props) {
@@ -18,6 +19,10 @@ class Login extends React.Component{
         console.log(this.state)
         fetch("/api/auth/login",{
             method:"POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify(this.state)
         })
     }

@@ -3,15 +3,10 @@
  */
 
 import Router from 'koa-router'
+import authController from '../../controller/authController'
 
 const router=Router()
 
-router.post('/auth/login', function (ctx, next) {
-    console.log("sadasdsadsa")
-    passport.authenticate('local', {
-        successRedirect: '/app',
-        failureRedirect: '/'
-    })
-});
+router.post('/auth/login',authController.login);
 
 module.exports = router;
