@@ -6,7 +6,7 @@ import Router from 'koa-router'
 
 const router=Router()
 
-router.post('/api/login', function (ctx, next) {
+router.post('/auth/login', function (ctx, next) {
     passport.authenticate('local', {
         successRedirect: '/app',
         failureRedirect: '/'

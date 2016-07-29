@@ -7,7 +7,6 @@ import Router from 'koa-router'
 const router=Router()
 
 router.get('/', async(ctx, next)=> {
-    console.log('==================ddd')
     ctx.body = await ctx.render('login');
 });
 

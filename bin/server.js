@@ -76,7 +76,6 @@ app.context.render = co.wrap(render({
 //init router
 import initRouters from '../src/routers/index'
 initRouters(app)
-app.listen(3000, () => console.log('server started 3000'))
 
 export default app
 

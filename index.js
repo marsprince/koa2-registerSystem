@@ -3,4 +3,4 @@
  */
 
 require("babel-register");
-require("./bin/server.js");
+require("./bin/www.js");
