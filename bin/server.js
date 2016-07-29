@@ -57,12 +57,9 @@ if (environment !== 'production') {
 }
 
 // authentication
-import passport from 'koa-passport'
-app.use(passport.initialize())
-app.use(passport.session())
 
 import authController from '../src/controller/authController'
-authController.init()
+authController.init(app)
 
 /*
  为ctx添加render方法，渲染html

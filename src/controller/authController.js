@@ -19,8 +19,9 @@ authController.login= function (ctx, next) {
     })(ctx, next)
 }
 
-authController.init=()=>{
-    
+authController.init=(app)=>{
+    app.use(passport.initialize())
+    app.use(passport.session())
     console.log('\n***** Passport has been established successfully *****\n');
     
    /* var user = { id: 1, username: 'test' }
@@ -42,6 +43,7 @@ authController.init=()=>{
             done(null, false)
         }
     }))
+    return app
 }
 
 export default authController
