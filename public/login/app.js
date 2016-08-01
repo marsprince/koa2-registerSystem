@@ -24,6 +24,17 @@ class Login extends React.Component{
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(this.state)
+        }) .then(function(response) {
+            return response.json()
+        }).then(function(json) {
+           if(json.success) {
+               location.href="/home"
+           }
+           else{
+               alert("登录失败")
+           }
+        }).catch(function(ex) {
+            console.log('parsing failed', ex)
         })
     }
     

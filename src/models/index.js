@@ -10,15 +10,6 @@ const config    = require(path.join(__dirname, '../../', 'config', 'config.json'
 const sequelize = new Sequelize(config.database, config.username, config.password, config);
 let db        = {};
 
-sequelize
-    .authenticate()
-    .then(function(err) {
-        console.log('Connection has been established successfully.');
-    })
-    .catch(function (err) {
-        console.log('Unable to connect to the database:', err);
-    });
-
 fs
     .readdirSync(__dirname)
     .filter(function(file) {
@@ -34,6 +25,15 @@ Object.keys(db).forEach(function(modelName) {
         db[modelName].associate(db);
     }
 });
+
+sequelize
+    .authenticate()
+    .then(function(err) {
+        console.log('Connection has been established successfully.');
+    })
+    .catch(function (err) {
+        console.log('Unable to connect to the database:', err);
+    });
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
