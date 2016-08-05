@@ -1,0 +1,7 @@
+{
+  "defineOptions": {
+    "freezeTableName":true,
+    "createdAt":false,
+    "updatedAt":false
+  }
+}

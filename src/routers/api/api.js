@@ -13,7 +13,7 @@ router.post('/auth/login',authController.login,(ctx,next)=>{
     ctx.body=ctx.isAuthenticated()?successResult:failedResult
 });
 
-router.get('/logout', (ctx,next)=> {
+router.get('/logout', authController.secured,(ctx,next)=> {
     ctx.logout()
     ctx.redirect('/')
 })

@@ -29,7 +29,7 @@ Object.keys(db).forEach(function(modelName) {
 sequelize
     .authenticate()
     .then(function(err) {
-        console.log('Connection has been established successfully.');
+        console.log('database Connection has been established successfully.');
     })
     .catch(function (err) {
         console.log('Unable to connect to the database:', err);

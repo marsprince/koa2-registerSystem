@@ -3,15 +3,15 @@
  */
 
 import Router from 'koa-router'
+import authController from '../../controller/authController'
 
 const router=Router()
 
-router.get('/', async(ctx, next)=> {
+router.get('/', authController.redirect,async(ctx, next)=> {
     ctx.body = await ctx.render('login');
 });
 
-router.get('home', async(ctx, next)=> {
-    console.log(ctx.isAuthenticated())
+router.get('home', authController.secured,async(ctx, next)=> {
     ctx.body = await ctx.render('home');
 });
 
