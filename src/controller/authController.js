@@ -5,25 +5,11 @@
 import passport from 'koa-passport'
 
 let authController={};
+var user = { id: 1, username: 'test' }
 
-authController.login=(ctx, next) =>{
-    return passport.authenticate('local', function(user, info, status) {
-        if (user === false) {
-            ctx.status = 401
-            ctx.body = { success: false }
-        } else {
-            ctx.body = { success: true }
-        }
-    })(ctx, next)
-}
-
+authController.login=passport.authenticate('local')
 authController.init=(app)=>{
-    app.use(passport.initialize())
-    app.use(passport.session())
-    console.log('\n***** Passport has been established successfully *****\n');
     
-    var user = { id: 1, username: 'test' }
-
     passport.serializeUser(function(user, done) {
         done(null, user.id)
     })
@@ -41,6 +27,11 @@ authController.init=(app)=>{
             done(null, false)
         }
     }))
+
+    app.use(passport.initialize())
+    app.use(passport.session())
+    console.log('\n***** Passport has been established successfully *****\n');
+
     return app
 }
 

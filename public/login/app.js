@@ -16,11 +16,11 @@ class Login extends React.Component{
     }
 
     login(){
-        console.log(this.state)
+        console.log(JSON.stringify(this.state))
         fetch("/api/auth/login",{
             method:"POST",
+            credentials: 'include',
             headers: {
-                'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(this.state)
@@ -31,7 +31,7 @@ class Login extends React.Component{
                location.href="/home"
            }
            else{
-               alert("登录失败")
+               alert("")
            }
         }).catch(function(ex) {
             console.log('parsing failed', ex)

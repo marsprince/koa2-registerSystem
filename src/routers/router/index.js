@@ -11,6 +11,7 @@ router.get('/', async(ctx, next)=> {
 });
 
 router.get('home', async(ctx, next)=> {
+    console.log(ctx.isAuthenticated())
     ctx.body = await ctx.render('home');
 });
 

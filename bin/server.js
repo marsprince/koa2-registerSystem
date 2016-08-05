@@ -10,31 +10,26 @@ import serve from 'koa-static';
 import logger from 'koa-logger'
 import convert from 'koa-convert'
 
-//init
-const app = new Koa()
-
-//body parser
-import bodyParser from 'koa-bodyparser'
-app.use(bodyParser())
-
-//keys
-
-app.keys = ['your-session-secret']
-
-//获得环境，开发or生产
-
-const environment = process.env.NODE_ENV || 'development';
-
 //database config
 
 import databaseDev from '../config/mysql.dev'
 const databaseConfig = process.env.NODE_ENV == 'production' ? null : databaseDev
+
+//init
+const app = new Koa()
+
+// trust proxy
+app.proxy = true
 
 //session
 
 const session = require('koa-generic-session')
     , MysqlStore = require('koa-mysql-session')
     , THIRTY_MINTUES = 30 * 60 * 1000;
+//keys
+
+app.keys = ['your-session-secret']
+
 app.use(convert(session({
     store: new MysqlStore(databaseConfig),
     rolling: true,
@@ -42,6 +37,15 @@ app.use(convert(session({
         maxage: THIRTY_MINTUES
     }
 })))
+
+//body parser
+import bodyParser from 'koa-bodyparser'
+app.use(bodyParser())
+
+
+//获得环境，开发or生产
+
+const environment = process.env.NODE_ENV || 'development';
 
 //配置生产和开发
 
@@ -69,10 +73,10 @@ app.context.render = co.wrap(render({
     writeBody: false
 }));
 
-
-// Require authentication for now
-
-
+app.use((ctx,next)=>{
+   
+    return next()
+})
 //init router
 import initRouters from '../src/routers/index'
 initRouters(app)
