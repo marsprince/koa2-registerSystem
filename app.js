@@ -1,7 +1,6 @@
 /**
- * Created by liujia on 2016/6/29.
+ * Created by jialiu on 16/12/9.
  */
-
 import Koa from 'koa'
 import render from 'koa-swig'
 import co from 'co'
@@ -12,11 +11,11 @@ import convert from 'koa-convert'
 
 //database config
 
-import databaseDev from '../config/mysql.dev'
+import databaseDev from './config/mysql.config'
 const databaseConfig = process.env.NODE_ENV == 'production' ? null : databaseDev
 
 //init
-const app = new Koa()
+const app = module.exports = new Koa()
 
 // trust proxy
 app.proxy = true
@@ -52,7 +51,7 @@ const environment = process.env.NODE_ENV || 'development';
 if (environment !== 'production') {
     console.log('DEVOLOPMENT ENVIRONMENT INIT   ===================');
     app.use(logger());
-    const webpackDevHelper = require('./dev');
+    const webpackDevHelper = require('./bin/dev');
     webpackDevHelper.useWebpackMiddleware(app);
 } else {
     console.log('PRODUCTION ENVIRONMENT INIT    ====================');
@@ -62,7 +61,7 @@ if (environment !== 'production') {
 
 // authentication
 
-import authController from '../src/controller/authController'
+import authController from './src/controller/authController'
 authController.init(app)
 
 /*
@@ -74,11 +73,11 @@ app.context.render = co.wrap(render({
 }));
 
 app.use((ctx,next)=>{
-   
+
     return next()
 })
 //init router
-import initRouters from '../src/routers/index'
+import initRouters from './src/routers/index'
 initRouters(app)
 
 export default app
