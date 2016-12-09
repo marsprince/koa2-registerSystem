@@ -14,8 +14,7 @@ var port = process.argv[2] || 4001;
     config.entry.main.unshift(one);
 });
 config.plugins.unshift(new webpack.HotModuleReplacementPlugin());
-config.output.path = "/";
-config.debug = true;
+
 var server = new WebpackDevServer(webpack(config), {
     contentBase: "./dist/",
 
