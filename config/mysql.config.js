@@ -3,8 +3,10 @@
  */
 
 module.exports={
-    user: "root",
-    password: "64x5y27z",
-    database: "test",
-    host: "localhost"
+    development:{
+        user: "root",
+        password: "64x5y27z",
+        database: "test",
+        host: "localhost"
+    }
 }

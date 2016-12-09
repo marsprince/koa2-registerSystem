@@ -3,7 +3,7 @@
  */
 
 import Router from 'koa-router'
-import authController from '../../controller/authController'
+import authController from '../controller/authController'
 
 const router=Router()
 

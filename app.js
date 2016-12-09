@@ -8,26 +8,57 @@ import path from 'path';
 import serve from 'koa-static';
 import logger from 'koa-logger'
 import convert from 'koa-convert'
-
-//database config
-
+import bodyParser from 'koa-bodyparser'
 import databaseDev from './config/mysql.config'
-const databaseConfig = process.env.NODE_ENV == 'production' ? null : databaseDev
+import session from 'koa-generic-session'
+import MysqlStore from 'koa-mysql-session'
+import passport from 'koa-passport'
+import authController from './src/controller/authController'
+import api from './src/routers/api'
+import index from './src/routers/index'
+import Router from 'koa-router'
 
-//init
 const app = module.exports = new Koa()
+const router=Router()
 
-// trust proxy
+//configs
+
+const environment = process.env.NODE_ENV || 'development';
+const databaseConfig = databaseDev[environment]
+
+const THIRTY_MINTUES = 30 * 60 * 1000;
+
+/*
+根据环境不同加载不同的东西
+ */
+
+if (environment !== 'production') {
+    console.log('DEVOLOPMENT ENVIRONMENT INIT   ===================');
+    app.use(logger());
+} else {
+    console.log('PRODUCTION ENVIRONMENT INIT    ====================');
+    //Production needs physical files! (built via separate process)
+    app.use(serve(path.resolve(__dirname, '../public')));
+}
+
+/*
+初始化
+ */
+
+authController.init(passport)
+
+/*
+加载app
+ */
+
+
 app.proxy = true
 
-//session
-
-const session = require('koa-generic-session')
-    , MysqlStore = require('koa-mysql-session')
-    , THIRTY_MINTUES = 30 * 60 * 1000;
-//keys
-
 app.keys = ['your-session-secret']
+
+/*
+加载中间件
+ */
 
 app.use(convert(session({
     store: new MysqlStore(databaseConfig),
@@ -37,48 +68,22 @@ app.use(convert(session({
     }
 })))
 
-//body parser
-import bodyParser from 'koa-bodyparser'
 app.use(bodyParser())
 
-
-//获得环境，开发or生产
-
-const environment = process.env.NODE_ENV || 'development';
-
-//配置生产和开发
-
-if (environment !== 'production') {
-    console.log('DEVOLOPMENT ENVIRONMENT INIT   ===================');
-    app.use(logger());
-    const webpackDevHelper = require('./bin/dev');
-    webpackDevHelper.useWebpackMiddleware(app);
-} else {
-    console.log('PRODUCTION ENVIRONMENT INIT    ====================');
-    //Production needs physical files! (built via separate process)
-    app.use(serve(path.resolve(__dirname, '../public')));
-}
-
-// authentication
-
-import authController from './src/controller/authController'
-authController.init(app)
+app.use(passport.initialize())
+app.use(passport.session())
+console.log('\n***** Passport has been established successfully *****\n');
 
 /*
  为ctx添加render方法，渲染html
  */
 app.context.render = co.wrap(render({
-    root: path.join(__dirname, '../public/views'),
+    root: path.join(__dirname, './public/views'),
     writeBody: false
 }));
 
-app.use((ctx,next)=>{
-
-    return next()
-})
 //init router
-import initRouters from './src/routers/index'
-initRouters(app)
-
-export default app
+router.use('/', index.routes(), index.allowedMethods());
+router.use('/api', api.routes(), api.allowedMethods());
+app.use(router.routes(), router.allowedMethods());
 

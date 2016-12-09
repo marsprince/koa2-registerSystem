@@ -4,7 +4,8 @@
   "description": "koa v2 registerSystem.",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development nodemon bin/www.js --exec babel-node --presets es2015,stage-2"
+    "start": "NODE_ENV=development nodemon bin/www.js --exec babel-node --presets es2015,stage-2",
+    "hot-dev-server": "NODE_ENV=development nodemon ./public/dev-server.js"
   },
   "repository": {
     "type": "git",
@@ -37,7 +38,6 @@
     "koa-swig": "^2.2.0",
     "koa-webpack-middleware": "^1.0.1",
     "material-ui": "^0.16.4",
-    "mount-koa-routes": "^2.0.1",
     "mysql": "^2.11.1",
     "normalize.css": "^5.0.0",
     "passport-local": "^1.0.0",

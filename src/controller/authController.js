@@ -2,9 +2,9 @@
  * Created by liujia on 2016/7/29.
  */
 
-import passport from 'koa-passport'
 import db from '../models/index'
 const LocalStrategy = require('passport-local').Strategy
+import passport from 'koa-passport'
 
 let authController={};
 var user = { id: 1, username: 'test' }
@@ -41,10 +41,10 @@ authController.redirect=async (ctx,next)=> {
     }
 };
 
-authController.init=(app)=>{
+authController.init=(passport)=>{
 
     const User=db.User
-    
+
     passport.serializeUser(function(user, done) {
         done(null, user.id)
     })
@@ -54,12 +54,6 @@ authController.init=(app)=>{
     })
 
     passport.use(localStrategy)
-
-    app.use(passport.initialize())
-    app.use(passport.session())
-    console.log('\n***** Passport has been established successfully *****\n');
-
-    return app
 }
 
 export default authController
