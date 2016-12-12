@@ -8,9 +8,9 @@ module.exports = {
         main:['./public/login.js']
     },
     output: {
-        path: '/',
+        path: path.resolve(__dirname, "dist"),
         filename: 'bundle.js',
-        publicPath: 'http://localhost:4001/static/'
+        publicPath: '/static/'
     },
     plugins: [
         new ExtractTextPlugin('app.css', {

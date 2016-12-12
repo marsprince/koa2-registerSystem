@@ -16,10 +16,8 @@ var port = process.argv[2] || 4001;
 config.plugins.unshift(new webpack.HotModuleReplacementPlugin());
 
 var server = new WebpackDevServer(webpack(config), {
-    contentBase: "./dist/",
-
+    contentBase: "./public/",
     hot: true,
-
     historyApiFallback: true,
     host: '127.0.0.1',
     filename: config.entry.main[0],
@@ -33,3 +31,4 @@ server.listen(port, "0.0.0.0", function() {
     console.log('Server listen: http://localhost:'+port);
     console.log('====================================')
 });
+
