@@ -2,10 +2,9 @@
  * Created by liujia on 2016/7/15.
  */
 
-import Router from 'koa-router'
-import authController from '../controller/authController'
+const authController =require('../controller/authController')
 
-const router=Router()
+const router= require('koa-router')()
 
 router.post('/auth/login',authController.login,(ctx,next)=>{
     const successResult={success:true},

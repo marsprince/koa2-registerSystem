@@ -2,9 +2,9 @@
  * Created by liujia on 2016/7/29.
  */
 
-import db from '../models/index'
+const db =require( '../models/index')
 const LocalStrategy = require('passport-local').Strategy
-import passport from 'koa-passport'
+const passport = require('koa-passport')
 
 let authController={};
 var user = { id: 1, username: 'test' }
@@ -15,7 +15,8 @@ const localStrategy=new LocalStrategy(async (username, password, done)=>{
             username:username
         }
     })
-    if (user.password === password) {
+
+    if (user && user.password === password) {
         done(null, user)
     } else {
         done(null, false)
@@ -56,5 +57,5 @@ authController.init=(passport)=>{
     passport.use(localStrategy)
 }
 
-export default authController
+module.exports=authController
 

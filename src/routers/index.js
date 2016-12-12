@@ -2,13 +2,14 @@
  * Created by liujia on 2016/7/15.
  */
 
-import Router from 'koa-router'
-import authController from '../controller/authController'
+const authController =require('../controller/authController')
 
-const router=Router()
+import api from './api'
+
+const router=require('koa-router')()
 
 router.get('/', authController.redirect,async(ctx, next)=> {
-    ctx.body = await ctx.render('login');
+    ctx.body ='hello world';
 });
 
 router.get('home', authController.secured,async(ctx, next)=> {
@@ -18,4 +19,7 @@ router.get('home', authController.secured,async(ctx, next)=> {
 router.get('/dist', async(ctx, next)=> {
     await serve(__dirname + '/public')
 });
+
+router.use('/api',api.routes(),api.allowedMethods())
+
 module.exports = router;

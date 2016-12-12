@@ -5,6 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import CSSModules from 'react-css-modules';
 import styles from '../css/login.css'
 import 'whatwg-fetch';
+import baseApi from '../api/base.api'
 
 class Login extends React.Component{
     constructor(props) {
@@ -16,19 +17,12 @@ class Login extends React.Component{
     }
 
     login(){
-        console.log(JSON.stringify(this.state))
-        fetch("/api/auth/login",{
-            method:"POST",
-            credentials: 'include',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(this.state)
-        }) .then(function(response) {
+        baseApi.login(this.state).then(function(response) {
+            console.log(response)
             return response.json()
         }).then(function(json) {
            if(json.success) {
-               location.href="/home"
+               //location.href="/home"
            }
            else{
                alert("")

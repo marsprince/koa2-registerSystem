@@ -14,7 +14,7 @@ import session from 'koa-generic-session'
 import MysqlStore from 'koa-mysql-session'
 import passport from 'koa-passport'
 import authController from './src/controller/authController'
-import api from './src/routers/api'
+import cors from 'kcors'
 import index from './src/routers/index'
 import Router from 'koa-router'
 
@@ -83,7 +83,6 @@ app.context.render = co.wrap(render({
 }));
 
 //init router
-router.use('/', index.routes(), index.allowedMethods());
-router.use('/api', api.routes(), api.allowedMethods());
-app.use(router.routes(), router.allowedMethods());
+app.use(cors());
+app.use(index.routes(),index.allowedMethods());
 
