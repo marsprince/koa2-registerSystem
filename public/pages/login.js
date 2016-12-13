@@ -1,11 +1,15 @@
+/**
+ * Created by jialiu on 16/12/13.
+ */
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import CSSModules from 'react-css-modules';
-import styles from '../css/login.css'
+import styles from '../css/login.scss'
 import 'whatwg-fetch';
 import baseApi from '../api/base.api'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class Login extends React.Component{
     constructor(props) {
@@ -18,22 +22,22 @@ class Login extends React.Component{
 
     login(){
         baseApi.login(this.state).then(function(response) {
-            console.log(response)
             return response.json()
         }).then(function(json) {
-           if(json.success) {
-               //location.href="/home"
-           }
-           else{
-               alert("")
-           }
+            if(json.success) {
+                //location.href="/home"
+            }
+            else{
+                alert("")
+            }
         }).catch(function(ex) {
             console.log('parsing failed', ex)
         })
     }
-    
+
     render(){
         return (
+            <MuiThemeProvider>
                 <Paper styleName='loginForm' zDepth={1} >
                     <div styleName='loginContent'>
                         <div styleName='loginTitle'>
@@ -45,7 +49,7 @@ class Login extends React.Component{
                                 floatingLabelText="请输入用户名"
                                 fullWidth={true}
                                 onChange={(event)=>this.setState({
-                                username:event.target.value
+                                    username:event.target.value
                                 })}
                             />
                             <TextField
@@ -53,7 +57,7 @@ class Login extends React.Component{
                                 floatingLabelText="请输入密码"
                                 fullWidth={true}
                                 onChange={(event)=>this.setState({
-                                password:event.target.value
+                                    password:event.target.value
                                 })}
                             />
                         </div>
@@ -61,7 +65,9 @@ class Login extends React.Component{
                             <RaisedButton primary={true} fullWidth={true} label="登录" onClick={()=>this.login()} />
                         </div>
                     </div>
-                    </Paper>
+                </Paper>
+            </MuiThemeProvider>
+
         )
     }
 }

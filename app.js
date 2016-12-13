@@ -74,14 +74,6 @@ app.use(passport.initialize())
 app.use(passport.session())
 console.log('\n***** Passport has been established successfully *****\n');
 
-/*
- 为ctx添加render方法，渲染html
- */
-app.context.render = co.wrap(render({
-    root: path.join(__dirname, './public/views'),
-    writeBody: false
-}));
-
 //init router
 app.use(cors());
 app.use(index.routes(),index.allowedMethods());

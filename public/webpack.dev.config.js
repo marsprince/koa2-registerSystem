@@ -5,7 +5,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     devtool: 'eval',
     entry: {
-        main:['./public/login.js']
+        main:['./public/app.js']
     },
     output: {
         path: path.resolve(__dirname, "dist"),
@@ -36,8 +36,8 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                loader: "style!css!sass"
-            }
+                loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]','sass')
+            },
         ]
     },
 };
