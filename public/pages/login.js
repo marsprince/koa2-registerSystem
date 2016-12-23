@@ -25,7 +25,7 @@ class Login extends React.Component{
             return response.json()
         }).then(function(json) {
             if(json.success) {
-                //location.href="/home"
+                location.href="/home"
             }
             else{
                 alert("")

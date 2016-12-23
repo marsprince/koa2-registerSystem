@@ -4,6 +4,7 @@
 
 import config from '../config/index'
 import 'whatwg-fetch'
+import {post} from '../services/httpSerivces'
 
 const EnvBaseUrl=config.env.api
 
@@ -16,5 +17,11 @@ module.exports={
             },
             body: JSON.stringify(options)
         })
+    },
+    login_:(body)=>{
+        return post(body,{headers: {
+            'Content-Type': 'application/json'
+        }})
     }
+
 }
